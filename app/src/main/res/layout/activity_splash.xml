@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layoutDescription="@xml/motion_scene_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".Activity_Splash_Login">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:alpha="0.25"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/elev"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:alpha="0"
+        android:background="#A8A0A0"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
+    <LinearLayout
+        android:alpha="0"
+        android:id= "@+id/linlay_inputs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="15dp"
+            android:text="Hoşgeldiniz"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:background="@drawable/edittext_id"
+            android:drawableStart="@drawable/kullanici_id"
+            android:textStyle="bold"
+            android:padding="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kullanıcı adınızı giriniz"
+            android:layout_marginTop="30dp"
+
+            android:textSize="15sp"
+            android:inputType="text"/>
+
+        <EditText
+            android:background="@drawable/edittext_id"
+            android:drawableStart="@drawable/baseline_lock_24"
+            android:textStyle="bold"
+            android:padding="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Şifrenizi giriniz"
+            android:layout_marginTop="15dp"
+
+            android:textSize="15sp"
+            android:inputType="textPassword"/>
+        <Button
+            android:background="@drawable/button_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:text="Logın"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/wrong_id_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wrong Password"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linlay_inputs"
+        android:gravity="center"
+        android:visibility="invisible"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
