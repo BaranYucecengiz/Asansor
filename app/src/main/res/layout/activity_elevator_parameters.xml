@@ -12,24 +12,44 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="300dp"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
         android:background="#A8A0A0"
-        android:scaleType="centerCrop"
         android:src="@drawable/elevator_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:layout_width="276dp"
-        android:layout_height="33dp"
-        android:layout_marginLeft="12dp"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toRightOf="@id/logo"
-        tools:layout_editor_absoluteY="16dp"
-        android:text="Asansör ID"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="45dp"
+        >
+
+        <TextView
+            android:id="@+id/elevator_id"
+            android:layout_width="276dp"
+            android:layout_height="20dp"
+
+            android:textSize="15sp"
+            android:text="123415152"
+            app:layout_constraintLeft_toRightOf="@id/logo"
+            tools:layout_editor_absoluteY="15dp" />
+        <TextView
+            android:id="@+id/elevator_address"
+            android:layout_width="276dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:text="merhaba"
+            app:layout_constraintLeft_toRightOf="@id/logo" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:alpha="1"
@@ -41,33 +61,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="15dp"
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp">
 
 
-        <TextView
-            android:id="@+id/elevator_id"
-            android:background="@drawable/edittext_id"
-            android:textStyle="bold"
-            android:padding="16sp"
+        <Spinner
+            android:id="@+id/spinnerParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Id"
-            android:layout_marginTop="30dp"
-            android:textSize="15sp" />
+            android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/elevator_address"
-            android:background="@drawable/edittext_id"
-            android:textStyle="bold"
-            android:padding="16sp"
+        <Spinner
+            android:id="@+id/spinnerChild"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Adres"
-            android:layout_marginTop="15dp"
-            android:textSize="15sp" />
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
