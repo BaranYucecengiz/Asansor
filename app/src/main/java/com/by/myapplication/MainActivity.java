@@ -17,11 +17,14 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     SearchView searchView_elevator;
     ListAdapter listAdapter;
+    ArrayList<Elevators> elevators;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        searchView_elevator = (SearchView) findViewById(R.id.searchview_elevator);
 
         int[] imgId = {R.drawable.elevator_logo};
         // Databaseden çekilecek olan bilgiler
@@ -29,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         String[] elevator_address = {"A Cad.", "B. Cad", "C. Cad", "D. Cad", "E. Cad", "F. Cad", "G. Cad", "H. Cad", "I. Cad", "J. Cad",};
         int lenght = 10;
         //-------------------------------------
-        ArrayList<Elevators> elevatorsArrayList = new ArrayList<>();
+        elevators = new ArrayList<>();
         for (int i= 0; i < lenght; i++){
             Elevators elevators = new Elevators(elevator_id[i], elevator_address[i], imgId[0]);
-            elevatorsArrayList.add(elevators);
+            this.elevators.add(elevators);
         }
 
-        listAdapter = new ListAdapter(MainActivity.this, elevatorsArrayList);
+        listAdapter = new ListAdapter(MainActivity.this, elevators);
         binding.listview.setAdapter(listAdapter);
         binding.listview.setClickable(true);
 
@@ -51,6 +54,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Searchview
+        searchView_elevator.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterElevatorsById(newText.trim());
+                return false;
+            }
+        });
     }
+
+    public void filterElevatorsById(String id) {
+        ArrayList<Elevators> filteredElevators;
+        if(id.isEmpty()){
+            filteredElevators = new ArrayList<>(elevators);
+        }else{
+            filteredElevators = new ArrayList<>();
+            id = id.toLowerCase();
+            for(Elevators elevator: elevators){
+                if(elevator.id.toLowerCase().contains(id)){
+                    filteredElevators.add(elevator);
+                }
+            }
+        }
+        listAdapter = new ListAdapter(MainActivity.this, filteredElevators);
+        binding.listview.setAdapter(listAdapter);
+        listAdapter.notifyDataSetChanged();
+    }
+
 }
