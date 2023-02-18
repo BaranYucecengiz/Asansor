@@ -9,7 +9,6 @@ public class Users implements Serializable {
 
     public Users(String user_id) {
         this.user_id = user_id;
-
     }
     public void addElevator(Elevators e){
         user_elevators.add(e);
