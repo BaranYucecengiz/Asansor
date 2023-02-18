@@ -1,12 +1,25 @@
 package com.by.myapplication;
 
-public class Elevators {
-    String id, address;
-    int image_id;
+import java.io.Serializable;
+import java.util.ArrayList;
 
-    public Elevators(String id, String address, int image_id) {
+public class Elevators implements Serializable {
+    String id, address;
+    ArrayList<Parameters> parameters = new ArrayList<>();
+    public Elevators(String id, String address) {
         this.id = id;
         this.address = address;
-        this.image_id = image_id;
     }
+    public void add_Parameters(Parameters ph){
+        parameters.add(ph);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
 }

@@ -23,6 +23,7 @@ public class ElevatorParametersActivity extends AppCompatActivity {
 
     ArrayList<String> arrayList_p, arrayList_d, arrayList_n;
     ArrayAdapter<String> arrayAdapter_child;
+    private Users users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +35,13 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         if(intent != null){
             String id = intent.getStringExtra("elevator_id");
             String address = intent.getStringExtra("elevator_adress");
-            int imgId = intent.getIntExtra("image_id", R.drawable.elevator_logo);
+            users = (Users) getIntent().getSerializableExtra("users");
 
             binding.elevatorId.setText(id);
             binding.elevatorAddress.setText(address);
-            binding.logo.setImageResource(imgId);
+            binding.logo.setImageResource( R.drawable.elevator_logo);
         }
-        //================= Parrent Spinner proc =================
+        //================= Parrent Spinner proc ================= // Hepsi json dosyasından okunacak
         spinner_parent = (Spinner)findViewById(R.id.spinnerParent);
 
 
@@ -90,7 +91,7 @@ public class ElevatorParametersActivity extends AppCompatActivity {
 
             }
         });
-        //================= Child Spinner END =================
+        //================= Child Spinner END =================// Json End
 
 
     }

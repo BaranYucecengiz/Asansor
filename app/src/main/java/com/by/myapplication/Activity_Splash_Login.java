@@ -12,16 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Activity_Splash_Login extends AppCompatActivity {
+public class Activity_Splash_Login extends AppCompatActivity{
     // OBJECTS
     private Button login_bt;
     private EditText user_id;
     private TextView wrong_id_pass;
     private EditText user_password;
+    private Users users;
 
     // PHPMYADMIN CONNECTION
 
@@ -51,7 +53,7 @@ public class Activity_Splash_Login extends AppCompatActivity {
 
     }
 
-    private class MyTask extends AsyncTask<Void, Void, Void> {
+    private class MyTask extends AsyncTask<Void, Void, Void>{
         private String email = "", password = "";
 
         @Override
@@ -84,7 +86,9 @@ public class Activity_Splash_Login extends AppCompatActivity {
                     email = String.valueOf(rs.getInt(1));
                     password = rs.getString(2);
 
+                    users = addUsers(users);
                     Intent intent = new Intent(Activity_Splash_Login.this, MainActivity.class);
+                    intent.putExtra("users", users);
                     startActivity(intent);
 
                 }else{
@@ -112,5 +116,45 @@ public class Activity_Splash_Login extends AppCompatActivity {
             super.onPostExecute(unused);
         }
     }
+    public Users addUsers(Users users){
+        // Json file dan çekilecek şuan manuel
+        users = new Users("15");
+        users.addElevator(new Elevators("1", "A. Cad"));
+        users.user_elevators.get(0).add_Parameters(new Parameters("P", "P01", "Çalışma Modu","enum", 0, 0, 7));
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Panel Adım Harekete Operasyonu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Enkoder Harici Kontrol Modu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Enkoder Demo Modu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Kapı Genişliği Ölçüm Modu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Konum Değişimi Ölçüm Modu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Pozisyon Değişimi Demo Modu");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("İlk Açı Ölçümü");
+        users.user_elevators.get(0).parameters.get(0).add_parameters_name("Dahili Hata Ayıklama ");
+        users.user_elevators.get(0).add_Parameters(new Parameters("P", "P02", "Motor Yönü","enum", 1, 0, 1));
+        users.user_elevators.get(0).parameters.get(1).add_parameters_name("İleri");
+        users.user_elevators.get(0).parameters.get(1).add_parameters_name("Geri");
+        users.user_elevators.get(0).add_Parameters(new Parameters("P", "P03", "Durdurma Modu","enum", 1, 0, 1));
+        users.user_elevators.get(0).parameters.get(1).add_parameters_name("Inertia stop");
+        users.user_elevators.get(0).parameters.get(1).add_parameters_name("Decelerate and stop");
+        users.user_elevators.get(0).parameters.get(1).add_parameters_name("Deceleration brake stop");
+        users.user_elevators.get(0).add_Parameters(new Parameters("D", "D01", "Kapı açılışındaki yavaşlama uzaklığı","bar", 120, 10, 300));
+        users.user_elevators.get(0).add_Parameters(new Parameters("D", "D01", "Kapı açılışının başlangıç hızı","bar", 40, 1, 400));
+        users.user_elevators.get(0).add_Parameters(new Parameters("N", "N01", "Frekans / Hız","", 0, 0, 0));
 
+
+        users.addElevator(new Elevators("2", "B. Cad"));
+        users.user_elevators.get(1).add_Parameters(new Parameters("P", "P01", "Çalışma Modu","enum", 0, 0, 7));
+        users.user_elevators.get(1).parameters.get(0).add_parameters_name("Panel Adım Harekete Operasyonu");
+        users.user_elevators.get(1).parameters.get(0).add_parameters_name("Enkoder Harici Kontrol Modu");
+        users.user_elevators.get(1).parameters.get(0).add_parameters_name("Enkoder Demo Modu");
+
+        users.user_elevators.get(1).add_Parameters(new Parameters("P", "P02", "Motor Yönü","enum", 1, 0, 1));
+        users.user_elevators.get(1).parameters.get(1).add_parameters_name("İleri");
+        users.user_elevators.get(1).parameters.get(1).add_parameters_name("Geri");
+
+        users.user_elevators.get(1).add_Parameters(new Parameters("D", "D01", "Kapı açılışındaki yavaşlama uzaklığı","bar", 120, 10, 300));
+        users.user_elevators.get(1).add_Parameters(new Parameters("D", "D01", "Kapı açılışının başlangıç hızı","bar", 40, 1, 400));
+        users.user_elevators.get(1).add_Parameters(new Parameters("N", "N01", "Frekans / Hız","", 0, 0, 0));
+
+        return users;
+    }
 }
