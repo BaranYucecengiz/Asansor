@@ -2,12 +2,14 @@ package com.by.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.by.myapplication.databinding.ActivityElevatorParametersBinding;
 
@@ -43,7 +45,6 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         }
         //================= Parrent Spinner proc ================= // Hepsi json dosyasından okunacak
         spinner_parent = (Spinner)findViewById(R.id.spinnerParent);
-
 
         arrayList_parent = new ArrayList<>();
         arrayList_parent.add("P");
