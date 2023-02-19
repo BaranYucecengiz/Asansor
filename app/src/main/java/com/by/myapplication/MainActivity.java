@@ -24,23 +24,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         searchView_elevator = (SearchView) findViewById(R.id.searchview_elevator);
-        Intent intent = this.getIntent(); // Yollamış old intenti yakalıyor
+        users = Users.getInstance();
 
-        if(intent != null) {
-            users = (Users) getIntent().getSerializableExtra("users");
-        }
-
-        // Databaseden çekilecek olan bilgiler
-        /*String[] elevator_id = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-        String[] elevator_address = {"A Cad.", "B. Cad", "C. Cad", "D. Cad", "E. Cad", "F. Cad", "G. Cad", "H. Cad", "I. Cad", "J. Cad",};
-        int lenght = 10;
-        //-------------------------------------
-        ArrayList<Elevators> elevatorsArrayList = new ArrayList<>();
-        for (int i= 0; i < lenght; i++){
-            Elevators elevators = new Elevators(users.user_elevators.get(i).getId(), users.user_elevators.get(i).getAddress());
-            elevatorsArrayList.add(elevators);
-        }*/
-        ArrayList<Elevators> elev = users.getUser_elevators();
         listAdapter = new ListAdapter(MainActivity.this, users.getUser_elevators());
         binding.listview.setAdapter(listAdapter);
         binding.listview.setClickable(true);
@@ -49,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent i = new Intent(MainActivity.this, ElevatorParametersActivity.class);
-                i.putExtra("elevator_id", users.user_elevators.get(position).getId());
-                i.putExtra("elevator_adress", users.user_elevators.get(position).getAddress());
-                i.putExtra("users", users);
+                i.putExtra("position", position);
                 startActivity(i);
 
             }
@@ -72,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void filterElevatorsById(String id) {
-        ArrayList<Elevators> filteredElevators;
+        ArrayList<Elevator> filteredElevators;
         if(id.isEmpty()){
             filteredElevators = new ArrayList<>(users.getUser_elevators());
         }else{
             filteredElevators = new ArrayList<>();
             id = id.toLowerCase();
-            for(Elevators elevator: users.getUser_elevators()){
-                if(elevator.id.toLowerCase().contains(id)){
+            for(Elevator elevator: users.getUser_elevators()){
+                if(elevator.getId().toLowerCase().contains(id)){
                     filteredElevators.add(elevator);
                 }
             }

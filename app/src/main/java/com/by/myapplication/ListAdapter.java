@@ -13,15 +13,15 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends ArrayAdapter<Elevators> {
+public class ListAdapter extends ArrayAdapter<Elevator> {
 
-    public ListAdapter(Context context, ArrayList<Elevators> elevatorsArrayList){
+    public ListAdapter(Context context, ArrayList<Elevator> elevatorsArrayList){
         super(context, R.layout.list_item, elevatorsArrayList);
 
     }
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
-        Elevators elevators = getItem(position);
+        Elevator elevators = getItem(position);
 
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
@@ -32,8 +32,8 @@ public class ListAdapter extends ArrayAdapter<Elevators> {
         TextView elevator_address = convertView.findViewById(R.id.elevator_address);
 
         imageView.setImageResource(R.drawable.elevator_logo);
-        elevator_id.setText(elevators.id);
-        elevator_address.setText(elevators.address);
+        elevator_id.setText(elevators.getId());
+        elevator_address.setText(elevators.getAddress());
 
         return  convertView;
     }

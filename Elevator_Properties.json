@@ -1,0 +1,964 @@
+{
+    "D": {
+        "D01": {
+            "default": 10,
+            "description_eng": "Starting Distance Of Door Opening",
+            "description_tr": "Kapı Açılışındaki Başlangıç Uzaklığı",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D02": {
+            "default": 120,
+            "description_eng": "Deceleration Distance Of Door Opening",
+            "description_tr": "Kapı Açılışındaki Yavaşlama Uzaklığı",
+            "range_end": 300,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D03": {
+            "default": 10,
+            "description_eng": "Buffer Distance Of Door Opening In Place",
+            "description_tr": "Kapı Açılışı Aralık Mesafesi",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D04": {
+            "default": 10,
+            "description_eng": "Keep Distance Of Open Door",
+            "description_tr": "Kapı Açılışında Mesafe",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D05": {
+            "default": 30,
+            "description_eng": "Keep Time Of Open Door",
+            "description_tr": "Kapının Açılış Süresi",
+            "range_end": 1000,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "D06": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "D07": {
+            "default": 40,
+            "description_eng": "Starting Speed Of Door Opening",
+            "description_tr": "Kapı Açılışının Başlangıç Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D08": {
+            "default": 100,
+            "description_eng": "Maximum Opening Speed",
+            "description_tr": "Maksimum Açılış Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D09": {
+            "default": 20,
+            "description_eng": "Speed Of Door Opening In Place",
+            "description_tr": "Kapının Açılma Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D10": {
+            "default": 10,
+            "description_eng": "Keep Speed Of Open Door",
+            "description_tr": "Kapı Açılışı Tutma Mesafesi",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D11": {
+            "default": 3,
+            "description_eng": "Hold Speed Of Door",
+            "description_tr": "Kapıyı Tutma Hızı",
+            "range_end": 80,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D12": {
+            "default": 3,
+            "description_eng": "Accelerate Step Of Open Door",
+            "description_tr": "Kapı Açılışının Hızlanma Artışı Miktarı",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D13": {
+            "default": 3,
+            "description_eng": "Decelerate Step Of Open Door",
+            "description_tr": "Kapı Açılışının Yavaşlama Artışı Miktarı",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D14": {
+            "default": 200,
+            "description_eng": "Starting Current Of Opening Door",
+            "description_tr": "Kapı Açılışının Başlangıç Akımı",
+            "range_end": 300,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D15": {
+            "default": 200,
+            "description_eng": "Current Of Opening Door Anti Pinch",
+            "description_tr": "Kapı Açılışının Sıkışma Engelleme Modundaki Akımı",
+            "range_end": 300,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D16": {
+            "default": 20,
+            "description_eng": "Hold Current Of Door Opening In Place",
+            "description_tr": "Kapı Açılışının Tutma Frekansı",
+            "range_end": 100,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D17": {
+            "default": 10,
+            "description_eng": "Starting Distance Of Door Closing",
+            "description_tr": "Kapı Kapanışının Başlangıç Uzaklığı",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D18": {
+            "default": 120,
+            "description_eng": "Deceleration Distance Of Door Closing",
+            "description_tr": "Kapı Açılışındaki Yavaşlama Uzaklığı",
+            "range_end": 300,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D19": {
+            "default": 10,
+            "description_eng": "Buffer Distance Of Door Opening In Place",
+            "description_tr": "Kapı Açılışı Aralık Mesafesi",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D20": {
+            "default": 10,
+            "description_eng": "Distance Between Door Closing And Locking",
+            "description_tr": "Kapının Kapanma Ve Kilitlenme Arasındaki Mesafe",
+            "range_end": 200,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "D21": {
+            "default": 30,
+            "description_eng": "Time Between Door Closing And Locking",
+            "description_tr": "Kapının Kapanma Ve Kilitlenme Arasındaki Zaman",
+            "range_end": 1000,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "D22": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "D23": {
+            "default": 40,
+            "description_eng": "Starting Speed Of Door Closing",
+            "description_tr": "Kapı Kapanışının Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D24": {
+            "default": 100,
+            "description_eng": "Maximum Closing Speed",
+            "description_tr": "Maksimum Kapanış Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D25": {
+            "default": 20,
+            "description_eng": "Speed Of Door Closing In Place",
+            "description_tr": "Kapının Kapanış Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D26": {
+            "default": 10,
+            "description_eng": "Lock Door Speed",
+            "description_tr": "Kilitli Kapı Hızı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D27": {
+            "default": 3,
+            "description_eng": "Hold Speed Of Closing Door In Place",
+            "description_tr": "Kapının Kapanışının Tutma Hızı",
+            "range_end": 80,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D28": {
+            "default": 3,
+            "description_eng": "Accelerate Of Closing",
+            "description_tr": "Kapanışın Hızlanması",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D29": {
+            "default": 3,
+            "description_eng": "Decelerate Of Closing",
+            "description_tr": "Kapanışın Yavaşlaması",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D30": {
+            "default": 200,
+            "description_eng": "Starting Current  Of Closing",
+            "description_tr": "Kapanışın Başlama Akımı",
+            "range_end": 300,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D31": {
+            "default": 200,
+            "description_eng": "Current Of Closing Door Anti Pinch",
+            "description_tr": "Kapanışta Sıkışma Önleyici Akım",
+            "range_end": 300,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D32": {
+            "default": 70,
+            "description_eng": "Hold Current Of Closing Door In Place",
+            "description_tr": "Kapı Kapanışının Tutma Frekansı",
+            "range_end": 300,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D33": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "D34": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "D35": {
+            "default": 0,
+            "description_eng": "Holding Time In Place",
+            "description_tr": "Tutuş Süresi",
+            "range_end": 999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "D36": {
+            "default": 20,
+            "description_eng": "Starting Distance / Time",
+            "description_tr": "Başlangıç Mesafesi / Zaman",
+            "range_end": 100,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "D37": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "D38": {
+            "default": 30,
+            "description_eng": "Action Speed When Power On",
+            "description_tr": "Güç Açıkken Harekete Geçme Hızı",
+            "range_end": 80,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D39": {
+            "default": 30,
+            "description_eng": "Gate Amplitude Measurement Speed",
+            "description_tr": "Kapı Genişliği Ölçüm Hızı",
+            "range_end": 80,
+            "range_start": 5,
+            "type": "Bar"
+        },
+        "D40": {
+            "default": 4445,
+            "description_eng": "Gate Width Measurement",
+            "description_tr": "Kapı Genişlik Ölçüsü",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        }
+    },
+    "N": {
+        "N01": {
+            "description_eng": "Frequency / Speed",
+            "description_tr": "Frekans / Hız"
+        },
+        "N02": {
+            "description_eng": "Current",
+            "description_tr": "Akım"
+        },
+        "N03": {
+            "description_eng": "Voltage",
+            "description_tr": "Voltaj"
+        },
+        "N04": {
+            "description_eng": "Encoder Value",
+            "description_tr": "Encoder Değeri"
+        },
+        "N05": {
+            "description_eng": "Encoder Value Of Opening In Place",
+            "description_tr": "Kapı Açılışının Encoder Değeri"
+        },
+        "N06": {
+            "description_eng": "Encoder Value Of Closing In Place",
+            "description_tr": "Kapı Kapanışının Encoder Değeri"
+        },
+        "N07": {
+            "description_eng": "Times Of Door Opening And Closing",
+            "description_tr": "Kapının Açılış Ve Kapanış Zamanları"
+        },
+        "N08": {
+            "description_eng": "Door Position",
+            "description_tr": "Kapı Pozisyonu"
+        },
+        "N09": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "N10": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "N11": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "N12": {
+            "description_eng": "Error Code",
+            "description_tr": "Hata Kodu"
+        },
+        "N13": {
+            "description_eng": "Error Code",
+            "description_tr": "Hata Kodu"
+        },
+        "N14": {
+            "description_eng": "Error Code",
+            "description_tr": "Hata Kodu"
+        },
+        "N15": {
+            "description_eng": "Error Code",
+            "description_tr": "Hata Kodu"
+        },
+        "N16": {
+            "description_eng": "Input Status",
+            "description_tr": "Girdi Durumu"
+        },
+        "N17": {
+            "description_eng": "Output Status",
+            "description_tr": "Çıktı Durumu"
+        },
+        "N18": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "N19": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "N20": {
+            "description_eng": "Software Version",
+            "description_tr": "Yazılım Versiyonu"
+        }
+    },
+    "P": {
+        "P01": {
+            "default": 0,
+            "description_eng": "Work Mode",
+            "description_tr": "Çalışma Modu",
+            "enum": {
+                "0": {
+                    "description_eng": "Panel Inching Operation",
+                    "description_tr": "Panel Adım Hareket Operasyonu"
+                },
+                "1": {
+                    "description_eng": "Encoder External Contol Mode",
+                    "description_tr": "Enkoder Harici Kontrol Modu"
+                },
+                "2": {
+                    "description_eng": "Encoder Demo Mode",
+                    "description_tr": "Enkoder Demo Modu"
+                },
+                "3": {
+                    "description_eng": "Gate Width Measurement Control",
+                    "description_tr": "Kapı Genişliği Ölçüm Modu"
+                },
+                "4": {
+                    "description_eng": "Position Switch External Control Mode",
+                    "description_tr": "Konum Değişimi Ölçüm Modu"
+                },
+                "5": {
+                    "description_eng": "Position Switch Demo",
+                    "description_tr": "Pozisyon Değişimi Demo Modu"
+                },
+                "6": {
+                    "description_eng": "Initial Angle Measurement",
+                    "description_tr": "İlk Açı Ölçümü"
+                },
+                "7": {
+                    "description_eng": "Internal Debugging",
+                    "description_tr": "Dahili Hata Ayıklama "
+                }
+            },
+            "range_end": 7,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P02": {
+            "default": 1,
+            "description_eng": "Motor Direction",
+            "description_tr": "Motor Yönü",
+            "enum": {
+                "0": {
+                    "description_eng": "Forward",
+                    "description_tr": "İleri"
+                },
+                "1": {
+                    "description_eng": "Reverse",
+                    "description_tr": "Geri"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P03": {
+            "default": 1,
+            "description_eng": "Stop Mode",
+            "description_tr": "Durdurma Modu",
+            "enum": {
+                "0": {
+                    "description_eng": "Inertia Stop",
+                    "description_tr": "Atalet Durdurumu"
+                },
+                "1": {
+                    "description_eng": "Decelerate And Stop",
+                    "description_tr": "Yavaşla Ve Dur"
+                },
+                "2": {
+                    "description_eng": "Deceleration Brake Stop",
+                    "description_tr": "Yavaşlama Freni Durdurma"
+                },
+                "3": {
+                    "description_eng": "Quick Deceleration Stop",
+                    "description_tr": "Hızlı Yavaşlama Durdurma"
+                }
+            },
+            "range_end": 3,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P04": {
+            "default": 50,
+            "description_eng": "Judgement Time Of Door Closing Anti Pinch (Ws)",
+            "description_tr": "Kapı Kapanırken Sıkışmayı Önleme Süresi",
+            "range_end": 500,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P05": {
+            "default": 50,
+            "description_eng": "Judgement Time Of Door Opening Anti Pinch (Ws)",
+            "description_tr": "Kapı Açılırken Sıkışmayı Önleme Süresi",
+            "range_end": 500,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P06": {
+            "default": 0,
+            "description_eng": "Effective Mode Of Door Command Signal",
+            "description_tr": "Kapı Komut Sinyalinin Etkili Modu",
+            "enum": {
+                "0": {
+                    "description_eng": "Level Trigger Mode",
+                    "description_tr": "Seviye Tetikleme Modu"
+                },
+                "1": {
+                    "description_eng": "Pulse Trigger Mode",
+                    "description_tr": "Atım Tetikleme Modu"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P07": {
+            "default": 27,
+            "description_eng": "Effective Level Of Input Signal",
+            "description_tr": "Etkili Giriş Sinyali Seviyesi",
+            "range_end": 31,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P08": {
+            "default": 3,
+            "description_eng": "Waiting Time For Demo Mode To Open",
+            "description_tr": "Demo Modunun Açılması Için Bekleme Süresi",
+            "range_end": 30,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P09": {
+            "default": 3,
+            "description_eng": "Waiting Time For Demo Code To Close",
+            "description_tr": "Demo Modunun Kapanması Için Bekleme Süresi",
+            "range_end": 30,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P10": {
+            "default": 1,
+            "description_eng": "Acceleration And Deceleration Control Mode Selection",
+            "description_tr": "Hızlanma Ve Yavaşlama Kontrol Modu Seçimi",
+            "enum": {
+                "0": {
+                    "description_eng": "Conic",
+                    "description_tr": "Konik"
+                },
+                "1": {
+                    "description_eng": "Quadratic Curve, Namely S Curve",
+                    "description_tr": "İkinci Dereceden Eğri, Yani S Eğrisi"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P11": {
+            "default": 0,
+            "description_eng": "Encoder Mode Closing In Place Signal Setting",
+            "description_tr": "Enkoder Modun Sinyale Göre Kapanması",
+            "enum": {
+                "0": {
+                    "description_eng": "According To The Position Of Encoder, The Door Is Closed In Place",
+                    "description_tr": "Encoderın Pozisyonuna Göre Kap Kapanışı"
+                },
+                "1": {
+                    "description_eng": "According To The Position Switch To Judge The Close Position Output",
+                    "description_tr": "Yakın Konum Çıkışını Yargılamak Için Konum Anahtarına Göre"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P12": {
+            "default": 1,
+            "description_eng": "Lower Limit Speed",
+            "description_tr": "Alt Hız Sınırı",
+            "range_end": 99,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P13": {
+            "default": 200,
+            "description_eng": "Upper Limit Speed",
+            "description_tr": "Üst Hız Sınırı",
+            "range_end": 500,
+            "range_start": 100,
+            "type": "Bar"
+        },
+        "P14": {
+            "default": 4,
+            "description_eng": "Safety Signal Filtering Time (Ms)",
+            "description_tr": "Güvenlik Sinyali Filtreleme Süresi",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P15": {
+            "default": 4,
+            "description_eng": "Filtering Time Of Arrival Signal (Ms)",
+            "description_tr": "Varış Sinyal Sinyalinin Filtreleme Süresi",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P16": {
+            "default": 7,
+            "description_eng": "Relay Ry3 Function Selection",
+            "description_tr": "Ry3 Rölesinin İşlev Seçimi",
+            "enum": {
+                "0": {
+                    "description_eng": "Door Opening Process Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "1": {
+                    "description_eng": "Door Closing Process Indication / Output",
+                    "description_tr": "Kapı Kapanış Göstergesi/Çıktısı"
+                },
+                "2": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "3": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "4": {
+                    "description_eng": "Door Opening In Place Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "5": {
+                    "description_eng": "Door Closing In Place Indication / Output",
+                    "description_tr": "Kapı Kapnış Göstergesi/Çıktısı"
+                },
+                "6": {
+                    "description_eng": "Clip In Detection Indicator / Output",
+                    "description_tr": "Algılama Göstergesinde / Çıkışında Klips"
+                },
+                "7": {
+                    "description_eng": "Exception Indication / Output",
+                    "description_tr": "İstisna Göstergesi/Çıktısı"
+                }
+            },
+            "range_end": 7,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P17": {
+            "default": 4,
+            "description_eng": "Relay Ry2 Function Selection",
+            "description_tr": "Ry2 Rölesinin İşlev Seçimi",
+            "enum": {
+                "0": {
+                    "description_eng": "Door Opening Process Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "1": {
+                    "description_eng": "Door Closing Process Indication / Output",
+                    "description_tr": "Kapı Kapanış Göstergesi/Çıktısı"
+                },
+                "2": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "3": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "4": {
+                    "description_eng": "Door Opening In Place Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "5": {
+                    "description_eng": "Door Closing In Place Indication / Output",
+                    "description_tr": "Kapı Kapnış Göstergesi/Çıktısı"
+                },
+                "6": {
+                    "description_eng": "Clip In Detection Indicator / Output",
+                    "description_tr": "Algılama Göstergesinde / Çıkışında Klips"
+                },
+                "7": {
+                    "description_eng": "Exception Indication / Output",
+                    "description_tr": "İstisna Göstergesi/Çıktısı"
+                }
+            },
+            "range_end": 7,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P18": {
+            "default": 5,
+            "description_eng": "Relay Ry1 Function Selection",
+            "description_tr": "Ry1 Rölesinin İşlev Seçimi",
+            "enum": {
+                "0": {
+                    "description_eng": "Door Opening Process Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "1": {
+                    "description_eng": "Door Closing Process Indication / Output",
+                    "description_tr": "Kapı Kapanış Göstergesi/Çıktısı"
+                },
+                "2": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "3": {
+                    "description_eng": "Invalid",
+                    "description_tr": "Geçersiz"
+                },
+                "4": {
+                    "description_eng": "Door Opening In Place Indication / Output",
+                    "description_tr": "Kapı Açılış Göstergesi/Çıktısı"
+                },
+                "5": {
+                    "description_eng": "Door Closing In Place Indication / Output",
+                    "description_tr": "Kapı Kapnış Göstergesi/Çıktısı"
+                },
+                "6": {
+                    "description_eng": "Clip In Detection Indicator / Output",
+                    "description_tr": "Algılama Göstergesinde / Çıkışında Klips"
+                },
+                "7": {
+                    "description_eng": "Exception Indication / Output",
+                    "description_tr": "İstisna Göstergesi/Çıktısı"
+                }
+            },
+            "range_end": 7,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P19": {
+            "default": 3,
+            "description_eng": "Restore Factory Parameters",
+            "description_tr": "Fabrika Parametrelerini Geri Yükle",
+            "enum": {
+                "1": {
+                    "description_eng": "Restore The Position Switch Mode Of Asynchronous Motor",
+                    "description_tr": "Asenkron Motorun Konum Değiştirme Modunu Geri Yüklemek"
+                },
+                "2": {
+                    "description_eng": "Restore Asynchronous Motor Encoder Mode",
+                    "description_tr": "Asenkron Motor Encoder Modunu Geri Yükleme"
+                },
+                "3": {
+                    "description_eng": "Restore The Synchronous Motor To Factor",
+                    "description_tr": "Senkron Motoru Faktöre Geri Yükleme"
+                }
+            },
+            "range_end": 3,
+            "range_start": 1,
+            "type": "Enum"
+        },
+        "P20": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P30": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P31": {
+            "default": 0,
+            "description_eng": "Motor Type",
+            "description_tr": "Motor Türü",
+            "enum": {
+                "0": {
+                    "description_eng": "Asynchronous Motor",
+                    "description_tr": "Asenkron Motor"
+                },
+                "1": {
+                    "description_eng": "Synchronous Motor",
+                    "description_tr": "Senkron Motor"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P32": {
+            "default": 8,
+            "description_eng": "Motor Poles",
+            "description_tr": "Motor Kutpu",
+            "range_end": 256,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P33": {
+            "default": 1024,
+            "description_eng": "Encoder Cpr",
+            "description_tr": "Enkoder Cpr",
+            "range_end": 4096,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P34": {
+            "default": 15,
+            "description_eng": "Carrier Frequency",
+            "description_tr": "Taşıyıcı Frekansı",
+            "range_end": 20,
+            "range_start": 8,
+            "type": "Bar"
+        },
+        "P35": {
+            "default": 40,
+            "description_eng": "Diameter Of Synchronous Wheel",
+            "description_tr": "Senkron Tekerleğin Çapı",
+            "range_end": 200,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P36": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P39": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P40": {
+            "default": 50,
+            "description_eng": "V/F",
+            "description_tr": "V/F",
+            "range_end": 60,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P41": {
+            "default": 100,
+            "description_eng": "Maximum Output Frequency Of Motor",
+            "description_tr": "Motorun Maksimum Çıkış Frekansı",
+            "range_end": 100,
+            "range_start": 50,
+            "type": "Bar"
+        },
+        "P42": {
+            "default": 20,
+            "description_eng": "Base Frequency",
+            "description_tr": "Baz Frekansı",
+            "range_end": 400,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P43": {
+            "default": 98,
+            "description_eng": "V / F Voltage Maximum",
+            "description_tr": "Maksimum V/F Voltajı",
+            "range_end": 100,
+            "range_start": 51,
+            "type": "Bar"
+        },
+        "P44": {
+            "default": 15,
+            "description_eng": "V / F Voltage Minimum",
+            "description_tr": "Minimum V/F Voltajı",
+            "range_end": 50,
+            "range_start": 10,
+            "type": "Bar"
+        },
+        "P45": {
+            "default": 5,
+            "description_eng": "Detection Frequency Of High Speed Locked Rotor Slip Of Asynchronous Motor (%)",
+            "description_tr": "Asenkron Motorun Yüksek Hızlı Kilitli Rotor Kaymasının Algılama Frekansı (%)",
+            "range_end": 10,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P46": {
+            "default": 5,
+            "description_eng": "Detection Frequency Of Low Speed Locked Rotor Slip Of Asynchronous Motor (%)",
+            "description_tr": "Asenkron Motorun Düşük Hızlı Kilitli Rotor Kaymasının Algılama Frekansı (%)",
+            "range_end": 10,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P47": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P50": {
+            "description_eng": "Backup",
+            "description_tr": "Yedek"
+        },
+        "P51": {
+            "default": 200,
+            "description_eng": "Open Speed P",
+            "description_tr": "Açılma Hızı P",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P52": {
+            "default": 10,
+            "description_eng": "Open Speed I",
+            "description_tr": "Açılma Hızı I",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P53": {
+            "default": 200,
+            "description_eng": "Close Speed P",
+            "description_tr": "Kapanma Hızı P",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P54": {
+            "default": 10,
+            "description_eng": "Close Speed I",
+            "description_tr": "Kapanma Hızı I",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P55": {
+            "default": 250,
+            "description_eng": "Current P",
+            "description_tr": "Akım P",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P56": {
+            "default": 30,
+            "description_eng": "Current I",
+            "description_tr": "Akım I",
+            "range_end": 9999,
+            "range_start": 0,
+            "type": "Bar"
+        },
+        "P57": {
+            "default": 5,
+            "description_eng": "Open Door Overload Detection Speed",
+            "description_tr": "Açık Kapı Aşırı Yük Algılama Hızı",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P58": {
+            "default": 5,
+            "description_eng": "Closing Overload Detection Speed",
+            "description_tr": "Kapanışın Aşırı Yük Algılama Hızı",
+            "range_end": 40,
+            "range_start": 1,
+            "type": "Bar"
+        },
+        "P59": {
+            "default": 0,
+            "description_eng": "Selection Of Open And Closed Loop Operation Of Synchronous Motor",
+            "description_tr": "Senkron Motorun Açık Ve Kapalı Çevrim Çalışmasının Seçimi",
+            "enum": {
+                "0": {
+                    "description_eng": "Closed Loop",
+                    "description_tr": "Kapalı Döngü"
+                },
+                "1": {
+                    "description_eng": "Open Loop",
+                    "description_tr": "Açık Döngü"
+                }
+            },
+            "range_end": 1,
+            "range_start": 0,
+            "type": "Enum"
+        },
+        "P60": {
+            "description_eng": "Initial Angle Of Motor",
+            "description_tr": "Motorun Başlangıç Açısı"
+        }
+    }
+}
