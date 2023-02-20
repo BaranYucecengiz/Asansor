@@ -147,5 +147,33 @@ public class DB {
         PreparedStatement preparedStatement = this.connect.prepareStatement(query);
         preparedStatement.executeUpdate();
     }
+    public ResultSet isAvailable(String login_id, String login_password) throws SQLException{
+        if (this.connect.isValid(5)){
+            System.out.println("Database e bağlanıldı");
 
+            Statement statement = this.connect.createStatement();
+            String query = "SELECT * from User where id='"
+                    + login_id + "' and password='" + login_password +"'";
+            final java.sql.ResultSet rs = statement.executeQuery(query);
+            return rs;
+        }
+        else{
+            System.out.println("Database e bağlanılmadı");
+        }
+        return null;
+    }
+    public void setUserInformation(DB db, ResultSet rs) throws SQLException {
+        ;
+        String user_id = rs.getString("id");
+        String user_password = rs.getString("password");
+        Users user = Users.getInstance();
+        user.setUser_id(user_id);
+        user.setUser_password(user_password);
+
+        List<String> responsibleElevatorIds;
+        responsibleElevatorIds = db.getResponsibleElevatorIds(user_id);
+
+        Map<String, Elevator> elevators = db.getAllResponsibleElevators(responsibleElevatorIds, false);
+        user.setUser_elevators(new ArrayList<Elevator>(elevators.values()));
+    }
 }

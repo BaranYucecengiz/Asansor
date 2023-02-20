@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ import com.by.myapplication.databinding.ActivityElevatorParametersBinding;
 import com.google.android.material.slider.Slider;
 import com.google.gson.Gson;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,33 +37,35 @@ public class ElevatorParametersActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter_child;
     private Users users;
     private int elevator_position;
-    private String code_text = "P";
-    private String subCode_text = "P01";
+    private String code_text;
+    private String subCode_text;
     TextView elevator_parameters;
     TextView parameter_slider_text;
     Slider parameter_slider;
+    private Button update_button;
     PDNParameter pdnParameter = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityElevatorParametersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         users = Users.getInstance();
-        parameter_slider = (Slider)findViewById(R.id.parameter_slider);
-        parameter_slider_text = (TextView)findViewById(R.id.parameter_slider_text);
+        parameter_slider = (Slider) findViewById(R.id.parameter_slider);
+        parameter_slider_text = (TextView) findViewById(R.id.parameter_slider_text);
         Intent intent = this.getIntent(); // Yollamış old intenti yakalıyor
 
-        if(intent != null){
+        if (intent != null) {
             elevator_position = intent.getIntExtra("position", 0);
 
             binding.elevatorId.setText(users.getUser_elevators().get(elevator_position).getId());
             binding.elevatorAddress.setText(users.getUser_elevators().get(elevator_position).getAddress());
-            binding.logo.setImageResource( R.drawable.elevator_logo);
+            binding.logo.setImageResource(R.drawable.elevator_logo);
         }
-        parameterObject = jstonToObject();
+        parameterObject = jsonToObject();
         //================= Spinner proc ================= // Hepsi json dosyasından okunacak
-        spinner_parent = (Spinner)findViewById(R.id.spinnerParent);
-        spinner_child = (Spinner)findViewById(R.id.spinnerChild);
+        spinner_parent = (Spinner) findViewById(R.id.spinnerParent);
+        spinner_child = (Spinner) findViewById(R.id.spinnerChild);
         arrayList_parent = new ArrayList<>();
         arrayList_child_p = new ArrayList<>();
         arrayList_child_d = new ArrayList<>();
@@ -68,16 +74,16 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         arrayList_parent.add("D");
         arrayList_parent.add("N");
         parameterObject.getD().get(0);
-        for(Map.Entry<String, PDNParameter> paramObject: parameterObject.getD().entrySet() ){
-            arrayList_child_d.add( paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr() );
+        for (Map.Entry<String, PDNParameter> paramObject : parameterObject.getD().entrySet()) {
+            arrayList_child_d.add(paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr());
         }
 
-        for(Map.Entry<String, PDNParameter> paramObject: parameterObject.getN().entrySet() ){
-            arrayList_child_n.add( paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr() );
+        for (Map.Entry<String, PDNParameter> paramObject : parameterObject.getN().entrySet()) {
+            arrayList_child_n.add(paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr());
         }
 
-        for(Map.Entry<String, PDNParameter> paramObject: parameterObject.getP().entrySet() ){
-            arrayList_child_p.add( paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr() );
+        for (Map.Entry<String, PDNParameter> paramObject : parameterObject.getP().entrySet()) {
+            arrayList_child_p.add(paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr());
         }
         arrayAdapter_parent = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_parent);
         spinner_parent.setAdapter(arrayAdapter_parent);
@@ -104,38 +110,38 @@ public class ElevatorParametersActivity extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         code_text = spinner_parent.getSelectedItem().toString();
-                        subCode_text = spinner_child.getSelectedItem().toString();
+                        subCode_text = spinner_child.getSelectedItem().toString().substring(0, 3);
 
                         if (code_text == "P")
-                            pdnParameter = parameterObject.getP().get(subCode_text.substring(0,3));
+                            pdnParameter = parameterObject.getP().get(subCode_text);
                         if (code_text == "D")
-                            pdnParameter =parameterObject.getD().get(subCode_text.substring(0,3));
+                            pdnParameter = parameterObject.getD().get(subCode_text);
                         if (code_text == "N")
-                            pdnParameter = parameterObject.getN().get(subCode_text.substring(0,3));
+                            pdnParameter = parameterObject.getN().get(subCode_text);
 
 
                         String text_all = "";
                         try {
-                            for(Map.Entry<String, EnumObject> paramObject: pdnParameter.getEnums().entrySet()){
-                                text_all+= paramObject.getKey() + ":  " + paramObject.getValue().getDescription_tr() + "\n";
+                            for (Map.Entry<String, EnumObject> paramObject : pdnParameter.getEnums().entrySet()) {
+                                text_all += paramObject.getKey() + ":  " + paramObject.getValue().getDescription_tr() + "\n";
                             }
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             System.out.println(e);
                         }
 
-                        elevator_parameters = (TextView)findViewById(R.id.elevator_parameters);
+                        elevator_parameters = (TextView) findViewById(R.id.elevator_parameters);
                         elevator_parameters.setText(text_all);
                         try {
-                            ((LinearLayout)findViewById(R.id.linlay_bar)).setVisibility(View.VISIBLE);
+                            ((LinearLayout) findViewById(R.id.linlay_bar)).setVisibility(View.VISIBLE);
                             parameter_slider.setValueFrom(pdnParameter.getRange_start());
                             parameter_slider.setValue(pdnParameter.getDefault_val());
                             parameter_slider_text.setText(pdnParameter.getDefault_val().toString());
                             parameter_slider.setValueTo(pdnParameter.getRange_end());
                             parameter_slider.setStepSize(1);
 
-                        }
-                        catch (Exception e){
-                            ((LinearLayout)findViewById(R.id.linlay_bar)).setVisibility(View.INVISIBLE);
+
+                        } catch (Exception e) {
+                            ((LinearLayout) findViewById(R.id.linlay_bar)).setVisibility(View.INVISIBLE);
                         }
                     }
 
@@ -145,6 +151,7 @@ public class ElevatorParametersActivity extends AppCompatActivity {
                     }
                 });
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -156,16 +163,47 @@ public class ElevatorParametersActivity extends AppCompatActivity {
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                 value = (int) value;
                 parameter_slider_text.setText(Float.toString(value));
+                System.out.println("Before : " + subCode_text);
+                if(code_text == "D" || code_text == "N")
+                    subCode_text = subCode_text.toLowerCase();
+                System.out.println("After : " + subCode_text);
+                users.getUser_elevators().get(elevator_position).getElevator(code_text).replace(subCode_text, (int) parameter_slider.getValue());
+
             }
 
         });
 
-        //================= Child Spinner END =================// Json End
-
-
+        update_button = (Button) findViewById(R.id.update_button);
+        update_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new MyTask().execute();
+            }
+        });
     }
-    public ParameterObject jstonToObject(){
+    private class MyTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
 
+            try {
+                DB db = new DB();
+                db.updateElevatorWithPropertyMap(users.getUser_elevators().get(elevator_position).getId(),
+                        users.getUser_elevators().get(elevator_position).getD(),
+                        "D");
+                db.updateElevatorWithPropertyMap(users.getUser_elevators().get(elevator_position).getId(),
+                        users.getUser_elevators().get(elevator_position).getP(),
+                        "P");
+                db.updateElevatorWithPropertyMap(users.getUser_elevators().get(elevator_position).getId(),
+                        users.getUser_elevators().get(elevator_position).getN(),
+                        "N");
+
+            } catch (Exception e) {
+
+            }
+            return null;
+        }
+    }
+    private ParameterObject jsonToObject() {
         Gson gson = new Gson();
         String json = "{\n" +
                 "    \"D\": {\n" +
@@ -1135,5 +1173,4 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         System.out.println("sa");
         return parameterObject;
     }
-
 }

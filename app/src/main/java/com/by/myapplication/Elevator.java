@@ -15,7 +15,6 @@ public class Elevator implements Serializable {
     private Map<String, Integer> P;
     private Map<String, Integer> D;
     private Map<String, Integer> N;
-    ArrayList<Parameters> parameters = new ArrayList<>();
 
     //CTors
     public Elevator(String id, String address) {
@@ -100,14 +99,12 @@ public class Elevator implements Serializable {
         N = n;
     }
 
-    // Functions
-
-    public void add_Parameters(Parameters ph){
-        parameters.add(ph);
+    public Map<String, Integer> getElevator(String code){
+        if(code == "P")
+            return P;
+        else if (code == "D")
+            return D;
+        else
+            return N;
     }
-
-    public ArrayList<Parameters> getParameters() {
-        return parameters;
-    }
-
 }
