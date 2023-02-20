@@ -5,18 +5,20 @@
     app:layoutDescription="@xml/motion_scene_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:backgroundTint="#FFFFFF"
+    android:background="#EDEDED"
+    android:backgroundTint="#EDEDED"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
     tools:context=".Activity_Splash_Login">
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:alpha="0.15"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/elev"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,19 +29,13 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/bgTop"
         android:layout_width="wrap_content"
-        android:layout_height="110dp"
-        android:paddingHorizontal="50dp"
-        android:layout_marginTop="40dp"
-        android:paddingBottom="40dp"
-        android:alpha="1"
-        android:scaleType="fitCenter"
-        android:src="@drawable/eom_logo"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        android:layout_height="120dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toTopOf="@+id/linlay_inputs"
+        android:src="@drawable/eom_top"
+        />
 
     <LinearLayout
         android:alpha="1"
@@ -56,70 +52,61 @@
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_marginTop="15dp"
-            android:text="SA"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:gravity="center"/>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:paddingHorizontal="50dp"
+            android:paddingBottom="30dp"
+            android:layout_marginTop="50dp"
+            android:alpha="0.9"
+            android:scaleType="fitCenter"
+            android:src="@drawable/eom_logo"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
         <EditText
             android:id="@+id/user_id"
+            android:fontFamily="@font/ui_font"
             android:background="@drawable/edittext_id"
             android:drawableStart="@drawable/kullanici_id"
-            android:textStyle="bold"
+            android:drawablePadding="12sp"
             android:padding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kullanıcı adınızı giriniz"
+            android:hint="Kullanıcı adı"
             android:layout_marginTop="30dp"
-
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:inputType="text"/>
 
         <EditText
             android:id="@+id/user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:background="@drawable/edittext_id"
             android:drawableStart="@drawable/baseline_lock_24"
-            android:textStyle="bold"
+            android:drawablePadding="12sp"
+            android:fontFamily="@font/ui_font"
+            android:hint="Şifre"
+            android:inputType="textPassword"
             android:padding="16sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Şifrenizi giriniz"
-            android:layout_marginTop="15dp"
-
-            android:textSize="15sp"
-            android:inputType="textPassword"/>
-        <Button
+            android:textSize="18sp" />
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_bt"
-            android:background="@drawable/button_bg"
+            android:background="@drawable/my_button"
+            android:fontFamily="@font/ui_font"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10sp"
-            android:text="Logın"
+            android:textAllCaps="false"
+            android:paddingVertical="16sp"
+            android:text="Giriş Yap"
+            android:textSize="20sp"
+            android:textColor="@color/white"
             android:layout_marginTop="30dp"/>
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/wrong_id_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="  "
-        android:textSize="15sp"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linlay_inputs"
-        android:gravity="center"
-        android:visibility="invisible"
-
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginEnd="30dp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

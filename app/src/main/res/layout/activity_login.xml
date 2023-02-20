@@ -11,12 +11,12 @@
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:alpha="0.15"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/elev"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -73,7 +73,7 @@
             android:padding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kullanıcı adınızı giriniz"
+            android:hint="Kullanıcı adı"
             android:layout_marginTop="30dp"
 
             android:textSize="15sp"
@@ -86,9 +86,8 @@
             android:padding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Şifrenizi giriniz"
+            android:hint="Şifre"
             android:layout_marginTop="15dp"
-
             android:textSize="15sp"
             android:inputType="textPassword"/>
         <Button
@@ -96,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10sp"
-            android:text="Logın"
+            android:text="Giriş Yap"
             android:layout_marginTop="30dp"/>
     </LinearLayout>
 

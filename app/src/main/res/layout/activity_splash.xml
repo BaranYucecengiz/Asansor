@@ -5,18 +5,18 @@
     app:layoutDescription="@xml/motion_scene_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:backgroundTint="#FFFFFF"
+    android:background="#EDEDED"
+    android:backgroundTint="#EDEDED"
     tools:context=".Activity_Splash_Login">
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:alpha="0.15"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/elev"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,25 +27,20 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="60dp"
-        android:alpha="0"
-        android:background="#A8A0A0"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        android:id="@+id/bgTop"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toTopOf="@+id/linlay_inputs"
+        android:src="@drawable/eom_top"
+        />
 
     <LinearLayout
         android:alpha="0"
         android:id= "@+id/linlay_inputs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintTop_toBottomOf="@id/bgTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -55,47 +50,52 @@
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_marginTop="15dp"
-            android:text="Hoşgeldiniz"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:gravity="center"/>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            android:alpha="0"
+            android:paddingHorizontal="50dp"
+            android:paddingBottom="30dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/eom_logo"
+            android:visibility="visible" />
 
         <EditText
+            android:id="@+id/user_id"
             android:background="@drawable/edittext_id"
             android:drawableStart="@drawable/kullanici_id"
+            android:drawablePadding="12sp"
             android:textStyle="bold"
             android:padding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kullanıcı adınızı giriniz"
+            android:hint="Kullanıcı adı"
             android:layout_marginTop="30dp"
-
             android:textSize="15sp"
             android:inputType="text"/>
 
         <EditText
+            android:id="@+id/user_password"
             android:background="@drawable/edittext_id"
             android:drawableStart="@drawable/baseline_lock_24"
+            android:drawablePadding="12sp"
             android:textStyle="bold"
             android:padding="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Şifrenizi giriniz"
+            android:hint="Şifre"
             android:layout_marginTop="15dp"
-
             android:textSize="15sp"
             android:inputType="textPassword"/>
         <Button
+            android:id="@+id/login_bt"
             android:background="@drawable/button_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10sp"
-            android:text="Logın"
+            android:text="Giriş Yap"
             android:layout_marginTop="30dp"/>
     </LinearLayout>
 
@@ -117,5 +117,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

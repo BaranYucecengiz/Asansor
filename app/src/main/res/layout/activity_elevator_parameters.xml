@@ -11,80 +11,133 @@
 
 
     <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="1"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
         android:id="@+id/logo"
         android:layout_width="78dp"
         android:layout_height="78dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:background="#A8A0A0"
-        android:src="@drawable/elevator_logo"
-
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/elev_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <LinearLayout
-        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/ui_font_bold"
+        android:padding="20sp"
+        android:text="Asansör Bilgileri"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/logo"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="96dp"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="45dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/elevator_id"
-            android:layout_width="276dp"
-            android:layout_height="20dp"
-
-            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ui_font_bold"
             android:text="10000000001"
+            android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@id/logo"
             tools:layout_editor_absoluteY="15dp" />
+
         <TextView
             android:id="@+id/elevator_address"
-            android:layout_width="276dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:textSize="12sp"
+            android:fontFamily="@font/ui_font"
             android:text="Kükürtlü Cad. 6. Başaran Sokak"
+            android:textSize="16sp"
             app:layout_constraintLeft_toRightOf="@id/logo" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ui_font_bold"
+        android:padding="20sp"
+        android:text="Parametre Bilgileri"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linlay_elevator_parameters"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout
-        android:alpha="1"
-        android:id= "@+id/linlay_elevator_parameters"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:id="@+id/linlay_elevator_parameters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginStart="15dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp">
+        android:alpha="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
 
 
         <Spinner
             android:id="@+id/spinnerParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginLeft="5dp"
+            android:spinnerMode="dropdown" />
 
         <Spinner
             android:id="@+id/spinnerChild"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginLeft="5dp"
+            android:spinnerMode="dropdown" />
+
         <TextView
             android:id="@+id/elevator_parameters"
+            android:fontFamily="@font/ui_font"
+            android:textSize="14sp"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linlay_bar"
         android:layout_width="match_parent"
@@ -119,26 +172,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/parameter_slider_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_marginTop="3dp"
-            android:text="0"/>
+            <TextView
+                android:id="@+id/parameter_slider_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:layout_marginTop="4dp"
+                android:text="0"/>
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/update_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            style="@style/Widget.Material3.Button.Icon"
+            android:fontFamily="@font/ui_font_bold"
+            android:background="@drawable/my_button"
+            android:textAllCaps="false"
             android:text="Güncelle"
-            android:textSize="16dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
             android:padding="20dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </LinearLayout>
 
 

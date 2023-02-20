@@ -17,8 +17,7 @@
 
             <ImageView
                 android:id="@+id/elev_pic"
-                android:src="@drawable/elevator_logo"
-
+                android:src="@drawable/elev_logo"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="20dp"/>
@@ -31,6 +30,7 @@
 
                 <TextView
                     android:id="@+id/elevator_id"
+                    android:fontFamily="@font/ui_font_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ASANSOR1"
@@ -39,6 +39,7 @@
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/elevator_address"
+                    android:fontFamily="@font/ui_font"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

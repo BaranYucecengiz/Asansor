@@ -31,7 +31,7 @@ public class ListAdapter extends ArrayAdapter<Elevator> {
         TextView elevator_id = convertView.findViewById(R.id.elevator_id);
         TextView elevator_address = convertView.findViewById(R.id.elevator_address);
 
-        imageView.setImageResource(R.drawable.elevator_logo);
+        imageView.setImageResource(R.drawable.elev_logo);
         elevator_id.setText(elevators.getId());
         elevator_address.setText(elevators.getAddress());
 

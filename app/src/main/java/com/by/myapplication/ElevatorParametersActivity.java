@@ -3,13 +3,18 @@ package com.by.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,10 +23,7 @@ import com.by.myapplication.databinding.ActivityElevatorParametersBinding;
 import com.google.android.material.slider.Slider;
 import com.google.gson.Gson;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ElevatorParametersActivity extends AppCompatActivity {
@@ -50,6 +52,7 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityElevatorParametersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         users = Users.getInstance();
         parameter_slider = (Slider) findViewById(R.id.parameter_slider);
         parameter_slider_text = (TextView) findViewById(R.id.parameter_slider_text);
@@ -60,7 +63,7 @@ public class ElevatorParametersActivity extends AppCompatActivity {
 
             binding.elevatorId.setText(users.getUser_elevators().get(elevator_position).getId());
             binding.elevatorAddress.setText(users.getUser_elevators().get(elevator_position).getAddress());
-            binding.logo.setImageResource(R.drawable.elevator_logo);
+            binding.logo.setImageResource(R.drawable.elev_logo);
         }
         parameterObject = jsonToObject();
         //================= Spinner proc ================= // Hepsi json dosyasından okunacak
@@ -85,25 +88,41 @@ public class ElevatorParametersActivity extends AppCompatActivity {
         for (Map.Entry<String, PDNParameter> paramObject : parameterObject.getP().entrySet()) {
             arrayList_child_p.add(paramObject.getKey() + "-" + paramObject.getValue().getDescription_tr());
         }
-        arrayAdapter_parent = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_parent);
-        spinner_parent.setAdapter(arrayAdapter_parent);
+        //arrayAdapter_parent = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_parent);
+        //spinner_parent.setAdapter(arrayAdapter_parent);
+        String[] parentStringArray = new String[arrayList_parent.size()];
+        for (int i = 0; i < parentStringArray.length; i++){
+            parentStringArray[i] = arrayList_parent.get(i);
+        }
+
+        spinner_parent.setAdapter(new MyCustomAdapter(ElevatorParametersActivity.this,
+                R.layout.spinner_row, parentStringArray, R.drawable.parameter_group));
         //================= Spinner END =================
 
 
         spinner_parent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
+                String[] childStringArray = new String[0];
                 if (position == 0) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_child_p);
+                    childStringArray = new String[arrayList_child_p.size()];
+                    for (int i = 0; i < childStringArray.length; i++){
+                        childStringArray[i] = arrayList_child_p.get(i);
+                    }
+                } else if (position == 1) {
+                    childStringArray = new String[arrayList_child_d.size()];
+                    for (int i = 0; i < childStringArray.length; i++){
+                        childStringArray[i] = arrayList_child_d.get(i);
+                    }
+                } else if (position == 2) {
+                    childStringArray = new String[arrayList_child_n.size()];
+                    for (int i = 0; i < childStringArray.length; i++){
+                        childStringArray[i] = arrayList_child_n.get(i);
+                    }
+                }
 
-                }
-                if (position == 1) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_child_d);
-                }
-                if (position == 2) {
-                    arrayAdapter_child = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList_child_n);
-                }
+                arrayAdapter_child = new MyCustomAdapter(ElevatorParametersActivity.this,
+                        R.layout.spinner_row, childStringArray, R.drawable.parameter);
                 spinner_child.setAdapter(arrayAdapter_child);
 
                 spinner_child.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -203,6 +222,48 @@ public class ElevatorParametersActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    public class MyCustomAdapter extends ArrayAdapter<String>{
+        int icon_res_id;
+        String[] objects;
+        public MyCustomAdapter(Context context, int textViewResourceId,
+                               String[] objects, int resId) {
+            super(context, textViewResourceId, objects);
+            this.icon_res_id = resId;
+            this.objects = objects;
+// TODO Auto-generated constructor stub
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+// TODO Auto-generated method stub
+            return getCustomView(position, convertView, parent);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+// TODO Auto-generated method stub
+            return getCustomView(position, convertView, parent);
+        }
+
+        public View getCustomView(int position, View convertView, ViewGroup parent) {
+// TODO Auto-generated method stub
+//return super.getView(position, convertView, parent);
+
+            LayoutInflater inflater=getLayoutInflater();
+            View row=inflater.inflate(R.layout.spinner_row, parent, false);
+            TextView label=(TextView)row.findViewById(R.id.spinner_text);
+            label.setText(objects[position]);
+
+            ImageView icon=(ImageView)row.findViewById(R.id.spinner_icon);
+
+            icon.setImageResource(icon_res_id);
+
+            return row;
+        }
+    }
+
     private ParameterObject jsonToObject() {
         Gson gson = new Gson();
         String json = "{\n" +
